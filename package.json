@@ -1,0 +1,20 @@
+{
+  "name": "yt",
+  "version": "1.0.0",
+  "description": "sla",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "LordGCS",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "yt-search": "^2.7.6",
+    "ytdl-core": "^4.11.4"    
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "7.x"
+  }
+}
