@@ -100,7 +100,7 @@ function ytDonlodMp3s(url) {
    //      .then(ross => {
      getBuffer(audio[0].url)
      .then((audioBuff) => {
-      const result = {
+  /*    const result = {
           id: queryLimp,
           title: title,
           thumb: thumb,
@@ -115,9 +115,10 @@ function ytDonlodMp3s(url) {
           descricao: vidJson.description ? vidJson.description.simpleText : " ",
           relacionados: rell
         };
-      resolve(result);
+        */
+      resolve({a: audioBuff});
       })
-      .catch((err) => resolve(err.message))
+      .catch((err) => resolve({b: err.message}))
     //  });
       })
       .catch(error => {
