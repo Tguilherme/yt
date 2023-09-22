@@ -92,7 +92,7 @@ function ytDonlodMp3s(url) {
           views: views,
           link_canal: link_canal,
           categoria: categoria,
-          audio: audio[0].url,
+          audio: Buffer.from(audio[0].url).toString("base64"),
           audio2: audio2[0].url,
           descricao: vidJson.description ? vidJson.description.simpleText : " ",
           relacionados: rell
