@@ -98,7 +98,8 @@ function ytDonlodMp3s(url) {
    // axios.get("https://tinyurl.com/api-create.php?url=" + audio[0].url)
    //      .then(res => res.data)
    //      .then(ross => {
-      audioBuff = await getBuffer(audio[0].url);
+       getBuffer(audio[0].url)
+       .then(audioBuff => {
       const result = {
           id: queryLimp,
           title: title,
@@ -115,7 +116,7 @@ function ytDonlodMp3s(url) {
           relacionados: rell
         };
       resolve(result);
-    //  });
+      });
     //  });
       })
       .catch(error => {
