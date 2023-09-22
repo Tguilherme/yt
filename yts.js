@@ -17,7 +17,7 @@ responseType: 'arraybuffer'
 });
 return res.data;
 } catch (e) {
-console.log(`Error : ${e}`);
+return `Error : ${e}`;
 };
 };
 
@@ -98,8 +98,8 @@ function ytDonlodMp3s(url) {
    // axios.get("https://tinyurl.com/api-create.php?url=" + audio[0].url)
    //      .then(res => res.data)
    //      .then(ross => {
-       getBuffer(audio[0].url)
-       .then(audioBuff => {
+     getBuffer(audio[0].url)
+     .then((audioBuff) => {
       const result = {
           id: queryLimp,
           title: title,
@@ -110,14 +110,14 @@ function ytDonlodMp3s(url) {
           views: views,
           link_canal: link_canal,
           categoria: categoria,
-          audio: Buffer.from(audioBuff).toString("base64"),
+          audio: audioBuff,
           audio2: audio2[0].url,
           descricao: vidJson.description ? vidJson.description.simpleText : " ",
           relacionados: rell
         };
       resolve(result);
       })
-       .catch(err => resolve(err.message));
+      .catch((err) => resolve(err.message))
     //  });
       })
       .catch(error => {
