@@ -9,6 +9,7 @@
   "author": "LordGCS",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.3",
     "yt-search": "^2.7.6",
     "ytdl-core": "^4.11.4"    

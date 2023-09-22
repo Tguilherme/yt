@@ -1,10 +1,26 @@
 const yt = require("ytdl-core");
 const yts = require("yt-search");
-//const axios = require("axios");
-//const {
-//getBuffers,
-//fetchJsons,
-//} = require("./functions.js");
+const axios = require('axios');
+
+const getBuffer = async (url, options) => {
+try {
+options ? options : {};
+const res = await axios({
+method: "get",
+url,
+headers: {
+'DNT': 1,
+'Upgrade-Insecure-Request': 1
+},
+...options,
+responseType: 'arraybuffer'
+});
+return res.data;
+} catch (e) {
+console.log(`Error : ${e}`);
+};
+};
+
 
 async function ytSearchss(query) {
 try {
@@ -32,7 +48,7 @@ function ytDonlodMp3s(url) {
      .split("://youtu.be/").join("")
     .split("?feature=share").join("");
    const yutub = yt.getInfo("https://www.youtube.com/watch?v=" + queryLimp)
-      .then((data) => {
+      .then(async(data) => {
       let pormat = data.formats;
         let audio = [];
         let audio2 = [];
@@ -81,7 +97,8 @@ function ytDonlodMp3s(url) {
    //      .then(ross2 => {
    // axios.get("https://tinyurl.com/api-create.php?url=" + audio[0].url)
    //      .then(res => res.data)
-   //      .then(ross => {   
+   //      .then(ross => {
+      audioBuff = await getBuffer(audio[0].url);
       const result = {
           id: queryLimp,
           title: title,
@@ -92,7 +109,7 @@ function ytDonlodMp3s(url) {
           views: views,
           link_canal: link_canal,
           categoria: categoria,
-          audio: Buffer.from(audio[0].url).toString("base64"),
+          audio: audioBuff,
           audio2: audio2[0].url,
           descricao: vidJson.description ? vidJson.description.simpleText : " ",
           relacionados: rell
