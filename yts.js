@@ -116,7 +116,8 @@ function ytDonlodMp3s(url) {
           relacionados: rell
         };
       resolve(result);
-      });
+      })
+       .catch(err => resolve(err.message));
     //  });
       })
       .catch(error => {
